@@ -57,11 +57,11 @@ layers:
   - HOME
   - END
   - {t: '|', h: SPECIAL}
-  - '&SpaceEnter'
+  - $$mdi:keyboard-space$$
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
-  - '&SpaceEnter'
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: PRINTSCREEN, h: BLUE}
   - CONTEXT MENU
   - {t: \, s: '|'}
@@ -122,11 +122,11 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:backspace-reverse-outline$$
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
