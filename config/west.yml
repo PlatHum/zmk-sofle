@@ -17,4 +17,4 @@ manifest:
       remote: gpeye                       #new entry
       revision: main                      #new entry
   self:
-    path: config
+    path: boards
