@@ -190,7 +190,7 @@
                 &kp GRAVE   &kp N1      &kp N2      &kp N3       &kp N4        &kp N5          &kp UP      &kp N6      &kp N7       &kp N8        &kp N9        &kp N0      &kp EQUAL
                 &kp TAB     &kp Q       &kp W       &kp E        &kp R         &kp T           &kp DOWN    &kp Y       &kp U        &kp I         &kp O         &kp P       &kp APOS
                 &kp ESC     &HomeRowModLeft LGUI A  &HomeRowModLeft LALT S &HomeRowModLeft LCTRL D &HomeRowModLeft LSHFT F &kp G       &kp LEFT    &kp H       &HomeRowModRight RSHFT J &HomeRowModRight LCTRL K &HomeRowModRight LALT L &HomeRowModRight LGUI SEMI &kp MINUS
-                &kp LBRACKET &kp Z      &kp X       &kp C        &kp V         &kp B           &kp RIGHT   &kp N       &kp M        COMMA_MORPH DOT_MORPH QMARK_EXCL_MORPH &kp RBRACKET
+                &kp LBKT &kp Z      &kp X       &kp C        &kp V         &kp B           &kp RIGHT   &kp N       &kp M        COMMA_MORPH DOT_MORPH QMARK_EXCL_MORPH &kp RBKT
 
                 /* Thumbs (52-63) */
                 &kp C_MUTE &kp HOME &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER &lt FN_LAYER RET
