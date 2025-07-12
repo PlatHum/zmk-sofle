@@ -122,7 +122,7 @@
         };
         num_tap_dance: num_tap_dance {
             compatible = "zmk,behavior-tap-dance"; label = "NUM_TAP_DANCE";
-            #binding-cells = <1>; bindings = <&tog>, <&sl>;
+            #binding-cells = <0>; bindings = <&tog>, <&sl>;
             tapping-term-ms = <THUMB_TAPPING_TERM>;
         };
 
