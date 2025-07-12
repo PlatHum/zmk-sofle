@@ -74,11 +74,18 @@
         };
 
         // --- Magic Shift (Caps Word, Repeat, Sticky Shift) ---
+        //Workaround for null binding-cell behavior
+        kp_lshift: kp_lshift {
+            compatible = "zmk,behavior-macro";
+            label = "KP_LSHIFT";
+            #binding-cells = <0>;
+            bindings = <&kp LSHFT>;
+        };
         magic_shift: magic_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "MAGIC_SHIFT";
             #binding-cells = <0>; 
-            bindings = <&kp LSHFT &magic_shift_tap_action>; 
+            bindings = <&kp_lshift &magic_shift_tap_action>; 
             flavor = "balanced";
             tapping-term-ms = <THUMB_TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_MS>;
