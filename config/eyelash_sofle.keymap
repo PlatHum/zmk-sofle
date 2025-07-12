@@ -74,33 +74,34 @@
         };
 
         // --- Magic Shift (Caps Word, Repeat, Sticky Shift) ---
-        //Workaround for null binding-cell behavior
-        kp_lshift: kp_lshift {
-            compatible = "zmk,behavior-macro";
-            label = "KP_LSHIFT";
-            #binding-cells = <0>;
-            bindings = <&kp LSHFT>;
-        };
-        magic_shift_hold_tap: magic_shift_hold_tap {
+    magic_shift_hold_tap: magic_shift_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "MAGIC_SHIFT_HT";
             #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp>, <&magic_shift_tap_action>;
             flavor = "balanced";
             tapping-term-ms = <THUMB_TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_MS>;
         };
+        
         magic_shift_tap_action: magic_shift_tap_action {
-            compatible = "zmk,behavior-mod-morph"; label = "MAGIC_SHIFT_TAP_ACTION";
-            #binding-cells = <0>; bindings = <&adaptive_shift_repeat>, <&caps_word>;
+            compatible = "zmk,behavior-mod-morph"; 
+            label = "MAGIC_SHIFT_TAP_ACTION";
+            #binding-cells = <0>; 
+            bindings = <&adaptive_shift_repeat>, <&caps_word>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        
         adaptive_shift_repeat: adaptive_shift_repeat {
-            compatible = "zmk,behavior-adaptive-key"; label = "ADAPTIVE_SHIFT_REPEAT";
-            #binding-cells = <0>; bindings = <&sk LSHFT>;
+            compatible = "zmk,behavior-adaptive-key"; 
+            label = "ADAPTIVE_SHIFT_REPEAT";
+            #binding-cells = <0>; 
+            bindings = <&sk LSHFT>;
             repeat {
                 trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
-                bindings = <&key_repeat>; max-prior-idle-ms = <1200>; strict-modifiers;
+                bindings = <&key_repeat>; 
+                max-prior-idle-ms = <1200>; 
+                strict-modifiers;
             };
         };
 
@@ -131,7 +132,7 @@
         };
         num_tap_dance: num_tap_dance {
             compatible = "zmk,behavior-tap-dance"; label = "NUM_TAP_DANCE";
-            #binding-cells = <0>; bindings = <&tog>, <&sl>;
+            #binding-cells = <0>; bindings = <&tog NUM_LAYER>, <&sl NUM_LAYER>;
             tapping-term-ms = <THUMB_TAPPING_TERM>;
         };
 
@@ -190,7 +191,7 @@
 
                 /* Thumbs (52-63) */
                 &kp C_MUTE &kp HOME &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER &lt FN_LAYER RET
-                &kp ENTER  &kp BSPC &magic_shift_hold_tap &kp_lshift &magic_shift_tap_action &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
+                &kp ENTER  &kp BSPC &magic_shift_hold_tap LSHFT 0 &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
