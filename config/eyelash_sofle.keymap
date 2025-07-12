@@ -81,11 +81,11 @@
             #binding-cells = <0>;
             bindings = <&kp LSHFT>;
         };
-        magic_shift: magic_shift {
+        magic_shift_hold_tap: magic_shift_hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "MAGIC_SHIFT";
-            #binding-cells = <0>; 
-            bindings = <&kp_lshift &magic_shift_tap_action>; 
+            label = "MAGIC_SHIFT_HT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
             flavor = "balanced";
             tapping-term-ms = <THUMB_TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_MS>;
@@ -190,7 +190,7 @@
 
                 /* Thumbs (52-63) */
                 &kp C_MUTE &kp HOME &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER &lt FN_LAYER RET
-                &kp ENTER  &kp BSPC &magic_shift &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
+                &kp ENTER  &kp BSPC &magic_shift_hold_tap &kp_lshift &magic_shift_tap_action &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
