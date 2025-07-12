@@ -181,7 +181,7 @@
 
                 /* Thumbs (52-63) */
                 &kp C_MUTE &kp HOME &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER &lt FN_LAYER RET
-                &kp ENTER  &kp BSPC &magic_shift_hold_tap LSHFT &magic_shift_tap_action &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
+                &kp ENTER  &kp BSPC &magic_shift_hold_tap(LSHFT, &magic_shift_tap_action) &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
