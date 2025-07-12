@@ -137,7 +137,7 @@
         // --- Leader Key Behavior ---
         leader_main: leader_main {
             compatible = "zmk,behavior-leader-key"; label = "LEADER";
-            #binding-cells = <0>; bindings = <&trans>; timeout-ms = <1000>;
+            #binding-cells = <0>; timeout-ms = <1000>;
             sequence_sys_reset { bindings = <&sys_reset>; sequence = <R E S E T>; };
             sequence_example_paste { bindings = <&kp LS(INS)>; sequence = <P A S T E>; };
         };
