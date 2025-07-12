@@ -46,15 +46,6 @@
 #define NAV_BSPC  &mt_nav_core LC(BSPC) BSPC  // Tap: bspc  | Long-tap: delete word bwd.
 #define NAV_DEL   &mt_nav_core LC(DEL)  DEL   // Tap: del   | Long-tap: delete word fwd.
 
-#define MS_U &mmv MOVE_UP
-#define MS_D &mmv MOVE_DOWN
-#define MS_L &mmv MOVE_LEFT
-#define MS_R &mmv MOVE_RIGHT
-#define WH_U &msc SCRL_UP
-#define WH_D &msc SCRL_DOWN
-#define WH_L &msc SCRL_LEFT
-#define WH_R &msc SCRL_RIGHT
-
 #define COMMA_MORPH &comma_morph_level1
 #define DOT_MORPH &dot_morph_level1
 #define QMARK_EXCL_MORPH &qmark_excl_morph
@@ -244,11 +235,11 @@
             display-name = "MOUSE";
             bindings = <
                 &trans &trans &trans &trans &trans &trans &trans    &trans   &trans    &trans    &trans    &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans    &trans   &kp PG_UP &MS_U &kp PG_DN &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans    &WH_L &MS_L  &MS_D &MS_R  &WH_R &trans
-                &trans &trans &trans &trans &trans &trans &trans    &trans   &mkp LCLK &mkp MCLK &mkp RCLK &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans    &trans   &kp PG_UP &mmv MOVE_UP &kp PG_DN &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans    &msc SCRL_LEFT &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT  &msc SCRL_RIGHT &trans
+                &trans &trans &trans &trans &trans &trans &trans    &trans  &mkp LCLK &mkp MCLK &mkp RCLK &trans &trans
                 /* Thumbs (52-63) */
-                &trans &trans &trans &trans &WH_U &WH_D
+                &trans &trans &trans &trans &msc SCRL_UP &msc SCRL_DOWN
                 &trans &trans &trans &trans &trans &trans
             >;
             sensor-bindings = <&scroll_encoder>;
