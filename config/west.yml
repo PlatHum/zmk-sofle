@@ -8,13 +8,19 @@ manifest:
       # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
     - name: gpeye
       url-base: https://github.com/GPeye
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: hammerbeam-slideshow          #new entry
-      remote: gpeye                       #new entry
-      revision: main                      #new entry
+    - name: hammerbeam-slideshow
+      remote: gpeye             
+      revision: main
+    - name: zmk-leader-key
+      remote: urob
+      revision: main
+      path: modules/behaviors/zmk-leader-key                     
   self:
     path: boards
