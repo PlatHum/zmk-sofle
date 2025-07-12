@@ -45,7 +45,6 @@
 #define NAV_DOWN  &mt_nav_core LC(END)  DOWN  // Tap: down  | Long-tap: end   of doc.
 #define NAV_BSPC  &mt_nav_core LC(BSPC) BSPC  // Tap: bspc  | Long-tap: delete word bwd.
 #define NAV_DEL   &mt_nav_core LC(DEL)  DEL   // Tap: del   | Long-tap: delete word fwd.
-#define NAV_CANCEL &kp K_CANCEL
 
 #define MS_U &mmv MOVE_UP
 #define MS_D &mmv MOVE_DOWN
@@ -208,7 +207,7 @@
                 &trans &trans     &trans   &trans     &kp LS(TAB)    &trans &trans    &kp INS    &kp TAB    &trans &trans &trans &trans
                 /* Thumbs (52-63) */
                 &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &NAV_CANCEL &trans &trans
+                &trans &trans &trans &kp K_CANCEL &trans &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
