@@ -61,7 +61,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', h: FN}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
-  - {t: '&adaptive_shift_repeat', h: '$$mdi:apple-keyboard-shift$$', s: '&caps_word_custom_behavior'}
+  - {t: '&adaptive_shift_repeat', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:alpha-w-box$$'}
   - {t: '&num_tap_dance 3', h: NUM}
   - CONTEXT MENU
   - {t: \, s: '|'}
