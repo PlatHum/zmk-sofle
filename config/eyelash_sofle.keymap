@@ -83,7 +83,7 @@
         };
         magic_shift_tap_action: magic_shift_tap_action {
             compatible = "zmk,behavior-mod-morph"; label = "MAGIC_SHIFT_TAP_ACTION";
-            #binding-cells = <0>; bindings = <&adaptive_shift_repeat>, <&caps_word_custom_behavior>;
+            #binding-cells = <0>; bindings = <&adaptive_shift_repeat>, <&caps_word>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         adaptive_shift_repeat: adaptive_shift_repeat {
@@ -93,9 +93,6 @@
                 trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
                 bindings = <&key_repeat>; max-prior-idle-ms = <1200>; strict-modifiers;
             };
-        };
-        caps_word_custom_behavior: caps_word_custom_behavior {
-            compatible = "zmk,behavior-caps-word"; label = "CAPS_WORD"; #binding-cells = <0>;
         };
 
         // --- Space/Nav Thumb Key ---
