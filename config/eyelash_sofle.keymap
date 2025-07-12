@@ -36,7 +36,7 @@
 &mmv { time-to-max-speed-ms = <500>; acceleration-exponent = <1>; trigger-period-ms = <16>; };
 
 // --- C Macros for Keymap Readability ---
-#define MAGIC_SHIFT(SHIFT_KEY) &magic_shift_hold_tap SHIFT_KEY
+#define MAGIC_SHIFT(SHIFT_KEY) &magic_shift_hold_tap SHIFT_KEY &magic_shift_tap_action
 #define SMART_NUM(LAYER) &smart_num_hold_tap LAYER LAYER
 
 #define NAV_LEFT  &mt_nav_core HOME   LEFT  // Tap: left  | Long-tap: start of line.
@@ -78,7 +78,7 @@
         magic_shift_hold_tap: magic_shift_hold_tap {
             compatible = "zmk,behavior-hold-tap"; label = "MAGIC_SHIFT_HT";
             bindings = <&kp>, <&magic_shift_tap_action>;
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced"; tapping-term-ms = <THUMB_TAPPING_TERM>; quick-tap-ms = <QUICK_TAP_MS>;
         };
         magic_shift_tap_action: magic_shift_tap_action {
@@ -181,7 +181,7 @@
 
                 /* Thumbs (52-63) */
                 &kp C_MUTE &kp HOME &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER &lt FN_LAYER RET
-                &kp ENTER  &kp BSPC &magic_shift_hold_tap LSHFT &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
+                &kp ENTER  &kp BSPC &magic_shift_hold_tap LSHFT &magic_shift_tap_action &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
