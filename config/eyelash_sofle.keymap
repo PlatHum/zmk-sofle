@@ -99,7 +99,7 @@
         lt_space_nav_layer: lt_space_nav_layer {
             compatible = "zmk,behavior-hold-tap"; label = "LT_SPACE_NAV";
             bindings = <&mo>, <&space_morph_action>;
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced"; tapping-term-ms = <THUMB_TAPPING_TERM>; quick-tap-ms = <QUICK_TAP_MS>;
         };
         space_morph_action: space_morph_action {
