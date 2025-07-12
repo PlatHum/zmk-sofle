@@ -59,7 +59,7 @@
 #define COMMA_MORPH &comma_morph_level1
 #define DOT_MORPH &dot_morph_level1
 #define QMARK_EXCL_MORPH &qmark_excl_morph
-#define COPY_CUT_DANCE ©_cut_dance
+#define COPY_CUT_DANCE &copy_cut_dance
 
 / {
     behaviors {
