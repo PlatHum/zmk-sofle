@@ -394,4 +394,4 @@ combos:
 - p: [16, 22]
   k: {t: MOUSE, h: toggle}
 - p: [41, 42]
-  k: '&©_cut_dance'
+  k: '&copy_cut_dance'
