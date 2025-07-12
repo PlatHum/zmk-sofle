@@ -40,7 +40,7 @@ layers:
   - {t: L, h: '$$mdi:apple-keyboard-option$$'}
   - {t: ;, h: LGUI, s: ':'}
   - {t: '-', s: _}
-  - LBRACKET
+  - {t: '[', s: '{'}
   - Z
   - X
   - C
@@ -52,7 +52,7 @@ layers:
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '?', s: '!'}
-  - RBRACKET
+  - {t: ']', s: '}'}
   - $$mdi:volume-off$$
   - HOME
   - BoOoO
