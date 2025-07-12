@@ -78,7 +78,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "MAGIC_SHIFT";
             #binding-cells = <0>; 
-            bindings = <&kp LSHFT>, <&magic_shift_tap_action>; 
+            bindings = <&kp LSHFT &magic_shift_tap_action>; 
             flavor = "balanced";
             tapping-term-ms = <THUMB_TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_MS>;
