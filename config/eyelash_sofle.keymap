@@ -156,12 +156,12 @@
         copy_cut_dance: copy_cut_dance { compatible = "zmk,behavior-tap-dance"; label = "COPY_CUT"; #binding-cells = <0>; tapping-term-ms = <200>; bindings = <&kp LC(C)>, <&kp LC(X)>; };
     };
 
-    #define DSK_PREV  &HOMEROWMODRIGHT RSHIFT LG(LC(LEFT)) // Previous desktop.
-    #define DSK_NEXT  &HOMEROWMODRIGHT LALT LG(LC(RIGHT)) // Next     desktop.
+    #define DSK_PREV  &HomeRowModRight RSHIFT LG(LC(LEFT)) // Previous desktop.
+    #define DSK_NEXT  &HomeRowModRight LALT LG(LC(RIGHT)) // Next     desktop.
     #define PIN_WIN   &kp LG(LC(LS(Q)))       // Pin window across desktops.
     #define PIN_APP   &kp LG(LC(LS(A)))       // Pin application across desktops.
     #define DSK_MGR   &kp LA(GRAVE)           // Desktop manager.
-    #define VOL_DOWN  &HOMEROWMODRIGHT LCTRL C_VOL_DN
+    #define VOL_DOWN  &HomeRowModRight LCTRL C_VOL_DN
 
 
     combos {
