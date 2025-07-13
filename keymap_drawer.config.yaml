@@ -155,8 +155,7 @@ parse_config:
     "&bt BT_CLR": BT Clr
     "&out OUT_TOG": Out
 
-
-    zmk_keycode_map:
+  zmk_keycode_map:
 
     C_MUTE: $$mdi:volume-off$$
     C_PP: $$mdi:play-pause$$
