@@ -110,6 +110,7 @@ draw_config:
   use_local_cache: true
 
 parse_config:
+  zmk_additional_includes: ["zmk-helpers/include"]
   mark_alternate_layer_activators: true
   sticky_label: $$mdi:gesture-tap-hold$$
   trans_legend:
@@ -117,446 +118,107 @@ parse_config:
     type: trans
 
   raw_binding_map:
-    # Layers
-    "&ltq 1 BACKSPACE":
-      tap:  $$mdi:backspace$$
-      hold: '$$mdi:navigation-variant$$'
-    "&ltq 3 TAB":
-      tap: $$mdi:keyboard-tab$$
-      hold: $$mdi:numeric$$
-    "&ltq 2 SPACE":
-      tap: $$mdi:keyboard-space$$
-      hold: $$mdi:symbol$$
-    "&ltq 3 ENTER":
-      tap: $$mdi:keyboard-return$$
-      hold: $$mdi:numeric$$
-    "&ltq 1 DELETE":
-      tap: $$mdi:backspace-reverse-outline$$
-      hold: $$mdi:navigation-variant$$
-    # Home rows
-    "&hm LEFT_GUI A":
-      tap: 'A'
-      shifted: $$mdi:apple-keyboard-command$$
-    "&hm LEFT_ALT S":
-      tap: 'S'
-      shifted: $$mdi:apple-keyboard-option$$
-    "&hm LEFT_CONTROL D":
-      tap: 'D'
-      shifted: $$mdi:apple-keyboard-control$$
-    "&hm LEFT_SHIFT F":
-      tap: 'F'
-      shifted: $$mdi:apple-keyboard-shift$$
-    "&hm RIGHT_SHIFT J":
-      tap: 'J'
-      shifted: $$mdi:apple-keyboard-shift$$
-    "&hm RIGHT_CONTROL K":
-      tap: 'K'
-      shifted: $$mdi:apple-keyboard-control$$
-    "&hm RIGHT_ALT L":
-      tap: 'L'
-      shifted: $$mdi:apple-keyboard-option$$
-    # self behaviors
-    "&hm LG(LS(V)) P":
-      tap: 'P'
-      shifted: $$mdi:content-copy$$
-    # Mouse
-    "&msc SCRL_UP":
-      tap: $$mdi:pan-up$$
-      hold: ''
-      shifted: ''
-    "&msc SCRL_DOWN":
-      tap: $$mdi:pan-down$$
-      hold: ''
-      shifted: ''
-    "&msc SCRL_LEFT":
-      tap: $$mdi:pan-left$$
-      hold: ''
-      shifted: ''
-    "&msc SCRL_RIGHT":
-      tap: $$mdi:pan-right$$
-      hold: ''
-      shifted: ''
-    "&mmv MOVE_LEFT":
-      tap: $$mdi:menu-left$$
-      hold: ''
-      shifted: $$mdi:mouse$$
-    "&mmv MOVE_RIGHT":
-      tap: $$mdi:menu-right$$
-      hold: ''
-      shifted: $$mdi:mouse$$
-    "&mmv MOVE_UP":
-      tap: $$mdi:menu-up$$
-      hold: ''
-      shifted: $$mdi:mouse$$
-    "&mmv MOVE_DOWN":
-      tap: $$mdi:menu-down$$
-      hold: ''
-      shifted: $$mdi:mouse$$
-    "&mkp LCLK":
-      tap: $$mdi:mouse-left-click-outline$$
-    "&mkp RCLK":
-      tap: $$mdi:mouse-right-click-outline$$
-    "&mkp MCLK":
-      tap: $$mdi:mouse-scroll-wheel$$
-    # Modifiers
-    "&caps_word": $$mdi:alpha-w-box$$
-    "&kt RSHIFT":
-      tap: $$mdi:apple-keyboard-shift$$
-      hold: $$mdi:toggle-switch$$
+    # Your Home Row Mods
+    "&HomeRowModLeft LGUI A": {t: A, h: $$mdi:apple-keyboard-command$$}
+    "&HomeRowModLeft LALT S": {t: S, h: $$mdi:apple-keyboard-option$$}
+    "&HomeRowModLeft LCTRL D": {t: D, h: $$mdi:apple-keyboard-control$$}
+    "&HomeRowModLeft LSHFT F": {t: F, h: $$mdi:apple-keyboard-shift$$}
+    "&HomeRowModRight RSHFT J": {t: J, h: $$mdi:apple-keyboard-shift$$}
+    "&HomeRowModRight LCTRL K": {t: K, h: $$mdi:apple-keyboard-control$$}
+    "&HomeRowModRight LALT L": {t: L, h: $$mdi:apple-keyboard-option$$}
+    "&HomeRowModRight LGUI SEMI": {t: ";", h: $$mdi:apple-keyboard-command$$}
+    
+    # Your thumb cluster hold-taps
+    "&magic_shift_hold_tap LSHFT 0": {t: Magic, h: Shift}
+    "&smart_num_hold_tap NUM_LAYER 0": {t: Num TD, h: Num Lyr}
+    "&lt_space_nav_layer NAV_LAYER 0": {t: Space, h: NAV}
 
-    # Empty
-    "&none":
-      tap: $$mdi:minus-circle-outline$$
-      type: none
+    "&comma_morph_level1": {t: ",", s: ";"}
+    "&dot_morph_level1": {t: ".", s: ":"}
+    "&qmark_excl_morph": {t: "?", s: "!"}
 
-    # Whitespace
-    "&bkspc_del":
-      type: backspace
-      tap: $$mdi:backspace$$
-      shifted: $$mdi:backspace-reverse-outline$$
+    # Your copy/cut tap-dance
+    "&copy_cut_dance": {t: Copy, h: Cut}
 
-    # Bluetooth
-    "&bt BT_SEL 0":
-      shifted: $$mdi:bluetooth-connect$$
-      tap: ""
-      hold: 1
-    "&bt BT_SEL 1":
-      shifted: $$mdi:bluetooth-connect$$
-      tap: ""
-      hold: 2
-    "&bt BT_SEL 2":
-      shifted: $$mdi:bluetooth-connect$$
-      tap: ""
-      hold: 3
-    "&bt BT_SEL 3":
-      shifted: $$mdi:bluetooth-connect$$
-      tap: ""
-      hold: 4
-    "&bt BT_SEL 4":
-      shifted: $$mdi:bluetooth-connect$$
-      tap: ""
-      hold: 5
-    "&out OUT_TOG":
-      shifted: $$mdi:usb$$
-      tap: $$mdi:toggle-switch$$
-      hold: $$mdi:bluetooth$$
-    "&bt BT_PRV":
-      shifted: $$mdi:bluetooth-connect$$
-      tap: ""
-      hold: $$mdi:arrow-up-bold$$
-    "&bt BT_NXT":
-      shifted: $$mdi:bluetooth-connect$$
-      tap: ""
-      hold: $$mdi:arrow-down-bold$$
-    # Reset
-    "&sys_reset":
-      type: bootloader
-      tap: $$mdi:backup-restore$$
-    "&bootloader":
-      tap: $$mdi:progress-download$$
+    # Other custom behaviors
+    "&leader_main": Leader
+    "&sys_reset": Reset
+    "&bootloader": Boot
+    "&caps_word": Caps Word
 
-  # ZMK
-  zmk_keycode_map:
-    # Symbols
-    EXCLAMATION: "!"
-    EXCL: "!"
-    AT_SIGN: "@"
-    AT: "@"
-    HASH: "#"
-    POUND: "#"
-    DOLLAR: $
-    DLLR: $
-    PERCENT: "%"
-    PRCNT: "%"
-    CARET: ^
-    AMPERSAND: "&"
-    AMPS: "&"
-    ASTERISK: "*"
-    ASTRK: "*"
-    STAR: "*"
-    LEFT_PARENTHESIS: (
-    LPAR: (
-    RIGHT_PARENTHESIS: )
-    RPAR: )
-    EQUAL:
-      tap: "="
-      shifted: "+"
-    PLUS: +
-    MINUS:
-      tap: "-"
-      shifted: "_"
-    UNDERSCORE: _
-    UNDER: _
-    SLASH:
-      tap: "/"
-      shifted: "?"
-    FSLH:
-      tap: "/"
-      shifted: "?"
-    QUESTION: "?"
-    QMARK: "?"
-    BACKSLASH:
-      tap: '\'
-      shifted: "|"
-    BSLH:
-      tap: '\'
-      shifted: "|"
-    PIPE: "|"
-    NON_US_BACKSLASH: \
-    PIPE2: "|"
-    NON_US_BSLH: "|"
-    SEMICOLON:
-      tap: ";"
-      shifted: ":"
-    SEMI:
-      tap: ";"
-      shifted: ":"
-    COLON: ":"
-    SINGLE_QUOTE:
-      tap: "'"
-      shifted: '"'
-    SQT:
-      tap: "'"
-      shifted: '"'
-    APOSTROPHE: 
-      tap: "'"
-      shifted: '"'
-    APOS: 
-      tap: "'"
-      shifted: '"'
-    DOUBLE_QUOTES: '"'
-    DQT: '"'
+    # Bluetooth and System keys
+    "&bt BT_SEL 0": BT 1
+    "&bt BT_SEL 1": BT 2
+    "&bt BT_SEL 2": BT 3
+    "&bt BT_SEL 3": BT 4
+    "&bt BT_SEL 4": BT 5
+    "&bt BT_CLR": BT Clr
+    "&out OUT_TOG": Out
 
-    LESS_THAN: <
-    LT: <
-    PERIOD: '.'
-    DOT:
-      tap: "."
-      shifted: ">"
-    COMMA:
-      tap: ","
-      shifted: "<"
-    GREATER_THAN: ">"
-    GT: ">"
-    LEFT_BRACKET:
-      tap: "["
-      shifted: "{"
-    LBKT:
-      tap: "["
-      shifted: "{"
-    LEFT_BRACE: "{"
-    LBRC: "{"
-    RIGHT_BRACKET:
-      tap: "]"
-      shifted: "}"
-    RBKT:
-      tap: "]"
-      shifted: "}"
-    RIGHT_BRACE: "}"
-    RBRC: "}"
-    GRAVE:
-      tap: "`"
-      shifted: "~"
-    TILDE: "~"
-    NON_US_HASH: "#"
-    NUHS: "#"
-    TILDE2: "~"
 
-    # Numbers
-    N1:
-      tap: 1
-      shifted: "!"
-    N2:
-      tap: 2
-      shifted: "@"
-    N3:
-      tap: 3
-      shifted: "#"
-    N4:
-      tap: 4
-      shifted: "$"
-    N5:
-      tap: 5
-      shifted: "%"
-    N6:
-      tap: 6
-      shifted: "^"
-    N7:
-      tap: 7
-      shifted: "&"
-    N8:
-      tap: 8
-      shifted: "*"
-    N9:
-      tap: 9
-      shifted: "("
-    N0:
-      tap: 0
-      shifted: ")"
+    zmk_keycode_map:
 
-    # Modifiers
-    LCTRL: $$mdi:apple-keyboard-control$$
-    LEFT_CONTROL: $$mdi:apple-keyboard-control$$
-    LALT: $$mdi:apple-keyboard-option$$
-    LEFT_ALT: $$mdi:apple-keyboard-option$$
-    LSHIFT: $$mdi:apple-keyboard-shift$$
-    LEFT_SHIFT: $$mdi:apple-keyboard-shift$$
-    LSHFT: $$mdi:apple-keyboard-shift$$
-    LCMD: $$mdi:apple-keyboard-command$$
-    LG: $$mdi:apple-keyboard-command$$
-    LEFT_GUI: $$mdi:apple-keyboard-command$$
-    LEFT_COMMAND: $$mdi:apple-keyboard-command$$
-    RCTRL: $$mdi:apple-keyboard-control$$
-    RIGHT_CONTROL: $$mdi:apple-keyboard-control$$
-    RALT: $$mdi:apple-keyboard-option$$
-    RIGHT_ALT: $$mdi:apple-keyboard-option$$
-    RSHIFT: $$mdi:apple-keyboard-shift$$
-    RIGHT_SHIFT: $$mdi:apple-keyboard-shift$$
-    RSHFT: $$mdi:apple-keyboard-shift$$
-    RCMD: $$mdi:apple-keyboard-command$$
-    RG: $$mdi:apple-keyboard-command$$
-    PSCRN: $$mdi:printer-outline$$
-    RIGHT_COMMAND: $$mdi:apple-keyboard-command$$
-    PAGE_UP:
-      tap: 'PgUp'
-      shifted: ''
-    PAGE_DOWN:
-      tap: 'PgDn'
-      shifted: ''
-    INSERT:
-       tap: 'Ins'
-       shifted: ''
-    # "Meh" key
-    LS(LC(LALT)): $$mdi:star-three-points$$
-
-    # Arrows
-    UP: $$mdi:arrow-up-bold$$
-    UP_ARROW: $$mdi:arrow-up-bold$$
-    DOWN: $$mdi:arrow-down-bold$$
-    DOWN_ARROW: $$mdi:arrow-down-bold$$
-    LEFT_ARROW: $$mdi:arrow-left-bold$$
-    LEFT: $$mdi:arrow-left-bold$$
-    RIGHT: $$mdi:arrow-right-bold$$
-    RIGHT_ARROW: $$mdi:arrow-right-bold$$
-
-    # Whitespace
-    ENTER:
-      type: enter
-      tap: $$mdi:keyboard-return$$
-    RET:
-      type: enter
-      tap: $$mdi:keyboard-return$$
-    ESC: $$mdi:keyboard-esc$$
-    ESCAPE: $$mdi:keyboard-esc$$
-    TAB: $$mdi:keyboard-tab$$
-    LS(TAB): $$mdi:keyboard-tab-reverse$$
-    SPACE: $$mdi:keyboard-space$$
-    BACKSPACE:
-      type: backspace
-      tap: $$mdi:backspace$$
-    BSPC:
-      type: backspace
-      tap: $$mdi:backspace$$
-    DELETE: $$mdi:backspace-reverse-outline$$
-    DEL: $$mdi:backspace-reverse-outline$$
-
-    # Locks
-    CAPSLOCK: $$mdi:apple-keyboard-caps$$
-    CAPS: $$mdi:apple-keyboard-caps$$
-
-    # Sound
     C_MUTE: $$mdi:volume-off$$
-    C_VOL_UP: $$mdi:volume-high$$
-    C_VOL_DN: $$mdi:volume-low$$
-    C_VOLUME_UP: $$mdi:volume-high$$
-    C_VOLUME_DOWN: $$mdi:volume-low$$
-
-    # Media
-    C_NEXT: $$mdi:skip-next$$
-    C_PREV: $$mdi:skip-previous$$
     C_PP: $$mdi:play-pause$$
+    C_VOL_UP: $$mdi:volume-high$$
+    C_VOL_DN: $$mdi:volume-medium$$
+    C_NEXT: $$mdi:skip-forward$$
+    C_PREV: $$mdi:skip-backward$$
+    LCTRL: Ctrl
+    LALT: Alt
+    LGUI: Gui
+    LSHFT: Shift
+    RCTRL: Ctrl
+    RALT: Alt
+    RGUI: Gui
+    RSHFT: Shift
 
-    # Bluetooth
-    BT_CLR: $$mdi:bluetooth-off$$
-    BT_SEL: $$mdi:bluetooth-connect$$
-
-    # Settings
-    C_BRI_UP: $$mdi:brightness-5$$
-    C_BRIGHTNESS_INC: $$mdi:brightness-5$$
-    C_BRI_DN: $$mdi:brightness-7$$
-    C_BRI_DEC: $$mdi:brightness-7$$
-    C_BRIGHTNESS_DEC: $$mdi:brightness-7$$
-
-    # System
-    C_POWER: $$mdi:power-standby$$
-    C_AL_LOCK: $$mdi:lock$$
-    K_CANCEL: $$mdi:close-box$$
-    K_FIND: $$mdi:apple-finder$$
-    # Command + 
-    LG(A):
-      tap: 'A'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(S):
-      tap: 'S'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(D):
-      tap: 'D'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(F):
-      tap: 'F'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(Z):
-      tap: 'Z'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(X):
-      tap: 'X'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(C):
-      tap: 'C'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(V):
-      tap: 'V'
-      hold: $$mdi:apple-keyboard-command$$
-    # Zoom
-    RG(RS(A)):
-      tap: $$mdi:microphone$$
-      hold: zoom
-    RG(RS(V)):
-      tap: $$mdi:video$$
-      hold: zoom
-
-  zmk_combos:
-    combo_to_2:
-      align: top
-    combo_to_3:
-      align: top
-    combo_bt_clear:
-      align: top
-      offset: 0.03
-    combo_mute:
-      align: top
-      offset: 0.15
-    combo_minus:
-      key:
-        shifted: "_"
-        hold: "-"
-    combo_equal:
-      key:
-        shifted: "+"
-        hold: "="
-    combo_backslash:
-      key:
-        shifted: "|"
-        hold: \
-    combo_lbkt:
-      key:
-        shifted: "{"
-        hold: "["
-    combo_rbkt:
-      key:
-        shifted: "}"
-        hold: "]"
-    combo_semicolon:
-      key:
-        shifted: ":"
-        hold: ";"
+    BSPC: Bspc
+    DEL: Del
+    ESC: Esc
+    RET: Enter
+    SPACE: Spc
+    TAB: Tab
+    PG_UP: PgUp
+    PG_DN: PgDn
+    INS: Ins
+    HOME: Home
+    END: End
+    UP: ↑
+    DOWN: ↓
+    LEFT: ←
+    RIGHT: →
+    
+    AMPERSAND: "&"
+    APOS: "'"
+    ASTERISK: "*"
+    AT: "@"
+    BACKSLASH: \
+    CARET: ^
+    COLON: ":"
+    COMMA: ","
+    DLLR: $
+    DOT: .
+    DOUBLE_QUOTES: '"'
+    EQUAL: "="
+    EXCL: "!"
+    FSLH: /
+    GRAVE: "`"
+    GT: ">"
+    HASH: "#"
+    LBKT: "["
+    LBRC: "{"
+    LPAR: (
+    LT: <
+    MINUS: "-"
+    PIPE: "|"
+    PLUS: +
+    QMARK: "?"
+    RBKT: "]"
+    RBRC: "}"
+    RPAR: )
+    SEMI: ;
+    SLASH: /
+    SQT: "'"
+    TILDE: "~"
+    UNDER: _
