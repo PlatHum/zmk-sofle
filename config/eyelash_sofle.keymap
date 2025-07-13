@@ -28,12 +28,55 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
+#include "zmk-helpers/helper.h"
 
 // --- Pointing Device Settings ---
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 &msc { acceleration-exponent = <1>; time-to-max-speed-ms = <100>; delay-ms = <0>; };
 &mmv { time-to-max-speed-ms = <500>; acceleration-exponent = <1>; trigger-period-ms = <16>; };
+
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    / { \
+        behaviors { \
+            NAME: NAME { \
+                compatible = "zmk,behavior-hold-tap"; \
+                label = #NAME; \
+                bindings = <HOLD>, <TAP>; \
+                flavor = "balanced"; \
+                tapping-term-ms = <280>; \
+                quick-tap-ms = <QUICK_TAP_MS>; \
+                require-prior-idle-ms = <150>; \
+                hold-trigger-on-release; \
+                hold-trigger-key-positions = <TRIGGER_POS>; \
+            }; \
+        }; \
+    };
+// Left Hand Base
+MAKE_HRM(hml_a, &kp LGUI,  &kp A,    KEYS_R THUMBS)
+MAKE_HRM(hml_s, &kp LALT,  &kp S,    KEYS_R THUMBS)
+MAKE_HRM(hml_d, &kp LCTRL, &kp D,    KEYS_R THUMBS)
+MAKE_HRM(hml_f, &kp LSHFT, &kp F,    KEYS_R THUMBS)
+// Right Hand Base
+MAKE_HRM(hmr_j, &kp RSHFT, &kp J,    KEYS_L THUMBS)
+MAKE_HRM(hmr_k, &kp RCTRL, &kp K,    KEYS_L THUMBS)
+MAKE_HRM(hmr_l, &kp RALT,  &kp L,    KEYS_L THUMBS)
+MAKE_HRM(hmr_semi,&kp RGUI,&kp SEMI, KEYS_L THUMBS)
+// Left Hand Function
+MAKE_HRM(hml_fn_f6, &kp LSHFT, &kp F6,   KEYS_R THUMBS)
+MAKE_HRM(hml_fn_f5, &kp LCTRL, &kp F5,   KEYS_R THUMBS)
+MAKE_HRM(hml_fn_f4, &kp LALT,  &kp F4,   KEYS_R THUMBS)
+MAKE_HRM(hml_fn_f11, &kp LGUI,  &kp F11,  KEYS_R THUMBS)
+// Right Hand Function
+MAKE_HRM(hmr_fn_dsk_prev, &kp RSHFT, &kp LG(LC(LEFT)), KEYS_L THUMBS)
+MAKE_HRM(hmr_fn_vol_down, &kp LCTRL, &kp C_VOL_DN,      KEYS_L THUMBS)
+MAKE_HRM(hmr_fn_dsk_next, &kp LALT,  &kp LG(LC(RIGHT)), KEYS_L THUMBS)
+// Left Hand Num
+MAKE_HRM(hml_num_6, &kp LSHFT, &kp N6,   KEYS_R THUMBS)
+MAKE_HRM(hml_num_5, &kp LCTRL, &kp N5,   KEYS_R THUMBS)
+MAKE_HRM(hml_num_4, &kp LALT,  &kp N4,   KEYS_R THUMBS)
+MAKE_HRM(hml_num_0, &kp LGUI,  &kp N0,   KEYS_R THUMBS)
+
 
 // --- C Macros for Keymap Readability ---
 #define SMART_NUM(LAYER) &smart_num_hold_tap LAYER LAYER
@@ -49,67 +92,65 @@
 #define DOT_MORPH &dot_morph_level1
 #define QMARK_EXCL_MORPH &qmark_excl_morph
 #define COPY_CUT_DANCE &copy_cut_dance
+#define PIN_WIN   &kp LG(LC(LS(Q)))
+#define PIN_APP   &kp LG(LC(LS(A)))
+#define DSK_MGR   &kp LA(GRAVE)
 
 / {
     behaviors {
-        scroll_encoder: scroll_encoder {
-            compatible = "zmk,behavior-sensor-rotate"; #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>; tap-ms = <100>;
-        };
 
-        // --- Home Row Mods ---
-        HomeRowModLeft: HomeRowModLeft {
-            compatible = "zmk,behavior-hold-tap"; label = "HOMEROWMODLEFT";
-            bindings = <&kp>, <&kp>;
-            #binding-cells = <2>; flavor = "balanced";
-            tapping-term-ms = <280>; quick-tap-ms = <175>; require-prior-idle-ms = <150>;
-            hold-trigger-on-release; hold-trigger-key-positions = <KEYS_R THUMBS>;
-        };
-        HomeRowModRight: HomeRowModRight {
-            compatible = "zmk,behavior-hold-tap"; label = "HOMEROWMODRIGHT";
-            bindings = <&kp>, <&kp>;
-            #binding-cells = <2>; flavor = "balanced";
-            tapping-term-ms = <280>; quick-tap-ms = <175>; require-prior-idle-ms = <150>;
-            hold-trigger-on-release; hold-trigger-key-positions = <KEYS_L THUMBS>;
-        };
-
-        // --- Magic Shift (Caps Word, Repeat, Sticky Shift) ---
-    magic_shift_hold_tap: magic_shift_hold_tap {
+        magic_shift_hold_tap: magic_shift_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "MAGIC_SHIFT_HT";
-            #binding-cells = <2>;
             bindings = <&kp>, <&magic_shift_tap_action>;
+            #binding-cells = <1>;
             flavor = "balanced";
             tapping-term-ms = <THUMB_TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_MS>;
         };
-        
         magic_shift_tap_action: magic_shift_tap_action {
-            compatible = "zmk,behavior-mod-morph"; 
+            compatible = "zmk,behavior-mod-morph";
             label = "MAGIC_SHIFT_TAP_ACTION";
-            #binding-cells = <0>; 
+            #binding-cells = <0>;
             bindings = <&adaptive_shift_repeat>, <&caps_word>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        
         adaptive_shift_repeat: adaptive_shift_repeat {
-            compatible = "zmk,behavior-adaptive-key"; 
+            compatible = "zmk,behavior-adaptive-key";
             label = "ADAPTIVE_SHIFT_REPEAT";
-            #binding-cells = <0>; 
+            #binding-cells = <0>;
             bindings = <&sk LSHFT>;
             repeat {
                 trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
-                bindings = <&key_repeat>; 
-                max-prior-idle-ms = <1200>; 
+                bindings = <&key_repeat>;
+                max-prior-idle-ms = <1200>;
                 strict-modifiers;
             };
         };
-
-        // --- Space/Nav Thumb Key ---
+        smart_num_hold_tap: smart_num_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SMART_NUM_HT";
+            bindings = <&mo>, <&num_tap_dance>;
+            #binding-cells = <1>;
+            flavor = "balanced";
+            tapping-term-ms = <THUMB_TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP_MS>;
+        };
+        num_tap_dance: num_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NUM_TAP_DANCE";
+            #binding-cells = <0>;
+            bindings = <&tog NUM_LAYER>, <&sl NUM_LAYER>;
+            tapping-term-ms = <THUMB_TAPPING_TERM>;
+        };
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate"; #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>; tap-ms = <100>;
+        };
         lt_space_nav_layer: lt_space_nav_layer {
             compatible = "zmk,behavior-hold-tap"; label = "LT_SPACE_NAV";
             bindings = <&mo>, <&space_morph_action>;
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             flavor = "balanced"; tapping-term-ms = <THUMB_TAPPING_TERM>; quick-tap-ms = <QUICK_TAP_MS>;
         };
         space_morph_action: space_morph_action {
@@ -122,59 +163,29 @@
             #binding-cells = <0>; bindings = <&kp DOT &kp SPACE &sk LSHFT>;
             wait-ms = <0>; tap-ms = <5>;
         };
-
-        // --- Smart Num Thumb Key ---
-        smart_num_hold_tap: smart_num_hold_tap {
-            compatible = "zmk,behavior-hold-tap"; label = "SMART_NUM_HT";
-            bindings = <&mo>, <&num_tap_dance>;
-            #binding-cells = <2>;
-            flavor = "balanced"; tapping-term-ms = <THUMB_TAPPING_TERM>; quick-tap-ms = <QUICK_TAP_MS>;
-        };
-        num_tap_dance: num_tap_dance {
-            compatible = "zmk,behavior-tap-dance"; label = "NUM_TAP_DANCE";
-            #binding-cells = <0>; bindings = <&tog NUM_LAYER>, <&sl NUM_LAYER>;
-            tapping-term-ms = <THUMB_TAPPING_TERM>;
-        };
-
-        // --- Nav Cluster Items ---
         mt_nav_core: mt_nav_core {
             compatible = "zmk,behavior-hold-tap"; label = "MT_NAV_CORE";
             bindings = <&kp>, <&kp>;
             #binding-cells = <2>; flavor = "tap-preferred";
             tapping-term-ms = <220>; quick-tap-ms = <220>;
         };
-
-        // --- Leader Key Behavior ---
         leader_main: leader_main {
             compatible = "zmk,behavior-leader-key"; label = "LEADER";
             #binding-cells = <0>;
             sequence_sys_reset { bindings = <&sys_reset>; sequence = <R E S E T>; };
             sequence_example_paste { bindings = <&kp LS(INS)>; sequence = <P A S T E>; };
         };
-
-        // --- Custom Mod-Morphs for Punctuation ---
         comma_morph_level1: comma_morph_level1 { compatible = "zmk,behavior-mod-morph"; label = "COMMA_L1"; #binding-cells = <0>; bindings = <&kp COMMA>, <&comma_morph_level2>; mods = <(MOD_LSFT|MOD_RSFT)>; };
         comma_morph_level2: comma_morph_level2 { compatible = "zmk,behavior-mod-morph"; label = "COMMA_L2"; #binding-cells = <0>; bindings = <&kp SEMICOLON>, <&kp LT>; mods = <(MOD_LCTL|MOD_RCTL)>; };
         dot_morph_level1: dot_morph_level1 { compatible = "zmk,behavior-mod-morph"; label = "DOT_L1"; #binding-cells = <0>; bindings = <&kp DOT>, <&dot_morph_level2>; mods = <(MOD_LSFT|MOD_RSFT)>; };
         dot_morph_level2: dot_morph_level2 { compatible = "zmk,behavior-mod-morph"; label = "DOT_L2"; #binding-cells = <0>; bindings = <&kp COLON>, <&kp GT>; mods = <(MOD_LCTL|MOD_RCTL)>; };
         qmark_excl_morph: qmark_excl_morph { compatible = "zmk,behavior-mod-morph"; label = "QMARK_EXCL"; #binding-cells = <0>; bindings = <&kp QMARK>, <&kp EXCL>; mods = <(MOD_LSFT|MOD_RSFT)>; };
-
-        // --- Tap-Dance for Copy/Cut ---
         copy_cut_dance: copy_cut_dance { compatible = "zmk,behavior-tap-dance"; label = "COPY_CUT"; #binding-cells = <0>; tapping-term-ms = <200>; bindings = <&kp LC(C)>, <&kp LC(X)>; };
     };
-
-    #define DSK_PREV  &HomeRowModRight RSHIFT LG(LC(LEFT)) // Previous desktop.
-    #define DSK_NEXT  &HomeRowModRight LALT LG(LC(RIGHT)) // Next     desktop.
-    #define PIN_WIN   &kp LG(LC(LS(Q)))       // Pin window across desktops.
-    #define PIN_APP   &kp LG(LC(LS(A)))       // Pin application across desktops.
-    #define DSK_MGR   &kp LA(GRAVE)           // Desktop manager.
-    #define VOL_DOWN  &HomeRowModRight LCTRL C_VOL_DN
-
 
     combos {
         compatible = "zmk,combos";
         MouseLayerToggle { bindings = <&tog MOUSE_LAYER>; key-positions = <16 22>; timeout-ms = <50>; };
-        //LeaderActivate { bindings = <&leader_main>; key-positions = <28 18>; timeout-ms = <50>; };
         CopyCutCombo { bindings = <COPY_CUT_DANCE>; key-positions = <41 42>; timeout-ms = <50>; };
     };
 
@@ -184,14 +195,13 @@
         layer_0 {
             display-name = "BASE";
             bindings = <
-                &kp GRAVE   &kp N1      &kp N2      &kp N3       &kp N4        &kp N5          &kp UP      &kp N6      &kp N7       &kp N8        &kp N9        &kp N0      &kp EQUAL
-                &kp TAB     &kp Q       &kp W       &kp E        &kp R         &kp T           &kp DOWN    &kp Y       &kp U        &kp I         &kp O         &kp P       &kp APOS
-                &kp ESC     &HomeRowModLeft LGUI A  &HomeRowModLeft LALT S &HomeRowModLeft LCTRL D &HomeRowModLeft LSHFT F &kp G       &kp LEFT    &kp H       &HomeRowModRight RSHFT J &HomeRowModRight LCTRL K &HomeRowModRight LALT L &HomeRowModRight LGUI SEMI &kp MINUS
-                &kp LBKT &kp Z      &kp X       &kp C        &kp V         &kp B           &kp RIGHT   &kp N       &kp M        COMMA_MORPH DOT_MORPH QMARK_EXCL_MORPH &kp RBKT
-
+                &kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5          &kp UP      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp EQUAL
+                &kp TAB         &kp Q           &kp W           &kp E           &kp R           &kp T           &kp DOWN    &kp Y           &kp U           &kp I           &kp O           &kp P           &kp APOS
+                &kp ESC         &hml_a          &hml_s          &hml_d          &hml_f          &kp G           &kp LEFT    &kp H           &hmr_j          &hmr_k          &hmr_l          &hmr_semi       &kp MINUS
+                &kp LBKT        &kp Z           &kp X           &kp C           &kp V           &kp B           &kp RIGHT   &kp N           &kp M           COMMA_MORPH     DOT_MORPH       QMARK_EXCL_MORPH &kp RBKT
                 /* Thumbs (52-63) */
                 &kp C_MUTE &kp HOME &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER &lt FN_LAYER RET
-                &kp ENTER  &kp BSPC &magic_shift_hold_tap LSHFT 0 &smart_num_hold_tap NUM_LAYER NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
+                &kp ENTER  &kp BSPC &magic_shift_hold_tap LSHFT &smart_num_hold_tap NUM_LAYER &kp K_CONTEXT_MENU &kp BACKSLASH
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
@@ -215,7 +225,7 @@
             bindings = <
                 &trans &trans    &trans     &trans     &trans     &trans &trans    &trans &trans &trans &trans   &trans     &trans
                 &trans &kp F12    &kp F7     &kp F8     &kp F9     &trans &trans    &trans &kp C_PREV     &kp C_VOL_UP       &kp C_NEXT       &trans     &trans
-                &trans &HomeRowModLeft LGUI F11  &HomeRowModLeft LALT F4 &HomeRowModLeft LCTRL F5 &HomeRowModLeft LSHFT F6    &trans &trans    &trans DSK_PREV     VOL_DOWN      DSK_NEXT       &trans     &trans
+                &trans &hml_fn_f11  &hml_fn_f4 &hml_fn_f5 &hml_fn_f6   &trans &trans    &trans &hmr_fn_dsk_prev     &hmr_fn_vol_down      &hmr_fn_dsk_next       &trans     &trans
                 &trans &kp F10     &kp F1     &kp F2     &kp F3     &trans &trans    PIN_APP PIN_WIN     DSK_MGR       &trans       &trans     &trans
                 /* Thumbs (52-63) */
                 &trans &trans &trans &trans &trans     &trans
@@ -229,7 +239,7 @@
             bindings = <
                 &trans &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
                 &trans &trans &kp N7 &kp N8 &kp N9 &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &HomeRowModLeft LGUI N0  &HomeRowModLeft LALT N4 &HomeRowModLeft LCTRL N5 &HomeRowModLeft LSHFT N6 &trans &trans    &trans &trans &trans &trans &trans &trans
+                &trans &hml_num_0  &hml_num_4 &hml_num_5 &hml_num_6 &trans &trans    &trans &trans &trans &trans &trans &trans
                 &trans &trans &kp N1 &kp N2 &kp N3 &trans &trans    &trans &trans &trans &trans &trans &trans
                 /* Thumbs (52-63) */
                 &trans &trans &trans &trans &trans &trans
