@@ -42,7 +42,7 @@
             NAME: NAME { \
                 compatible = "zmk,behavior-hold-tap"; \
                 label = #NAME; \
-                bindings = <HOLD>, <TAP>; \
+                bindings = <HOLD TAP>; \
                 flavor = "balanced"; \
                 tapping-term-ms = <280>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
