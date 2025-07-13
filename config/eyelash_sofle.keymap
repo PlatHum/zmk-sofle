@@ -36,47 +36,6 @@
 &msc { acceleration-exponent = <1>; time-to-max-speed-ms = <100>; delay-ms = <0>; };
 &mmv { time-to-max-speed-ms = <500>; acceleration-exponent = <1>; trigger-period-ms = <16>; };
 
-#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-    / { \
-        behaviors { \
-            NAME: NAME { \
-                compatible = "zmk,behavior-hold-tap"; \
-                label = #NAME; \
-                bindings = <HOLD TAP>; \
-                flavor = "balanced"; \
-                tapping-term-ms = <280>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                require-prior-idle-ms = <150>; \
-                hold-trigger-on-release; \
-                hold-trigger-key-positions = <TRIGGER_POS>; \
-            }; \
-        }; \
-    };
-// Left Hand Base
-MAKE_HRM(hml_a, &kp LGUI,  &kp A,    KEYS_R THUMBS)
-MAKE_HRM(hml_s, &kp LALT,  &kp S,    KEYS_R THUMBS)
-MAKE_HRM(hml_d, &kp LCTRL, &kp D,    KEYS_R THUMBS)
-MAKE_HRM(hml_f, &kp LSHFT, &kp F,    KEYS_R THUMBS)
-// Right Hand Base
-MAKE_HRM(hmr_j, &kp RSHFT, &kp J,    KEYS_L THUMBS)
-MAKE_HRM(hmr_k, &kp RCTRL, &kp K,    KEYS_L THUMBS)
-MAKE_HRM(hmr_l, &kp RALT,  &kp L,    KEYS_L THUMBS)
-MAKE_HRM(hmr_semi,&kp RGUI,&kp SEMI, KEYS_L THUMBS)
-// Left Hand Function
-MAKE_HRM(hml_fn_f6, &kp LSHFT, &kp F6,   KEYS_R THUMBS)
-MAKE_HRM(hml_fn_f5, &kp LCTRL, &kp F5,   KEYS_R THUMBS)
-MAKE_HRM(hml_fn_f4, &kp LALT,  &kp F4,   KEYS_R THUMBS)
-MAKE_HRM(hml_fn_f11, &kp LGUI,  &kp F11,  KEYS_R THUMBS)
-// Right Hand Function
-MAKE_HRM(hmr_fn_dsk_prev, &kp RSHFT, &kp LG(LC(LEFT)), KEYS_L THUMBS)
-MAKE_HRM(hmr_fn_vol_down, &kp LCTRL, &kp C_VOL_DN,      KEYS_L THUMBS)
-MAKE_HRM(hmr_fn_dsk_next, &kp LALT,  &kp LG(LC(RIGHT)), KEYS_L THUMBS)
-// Left Hand Num
-MAKE_HRM(hml_num_6, &kp LSHFT, &kp N6,   KEYS_R THUMBS)
-MAKE_HRM(hml_num_5, &kp LCTRL, &kp N5,   KEYS_R THUMBS)
-MAKE_HRM(hml_num_4, &kp LALT,  &kp N4,   KEYS_R THUMBS)
-MAKE_HRM(hml_num_0, &kp LGUI,  &kp N0,   KEYS_R THUMBS)
-
 
 // --- C Macros for Keymap Readability ---
 #define SMART_NUM(LAYER) &smart_num_hold_tap LAYER LAYER
@@ -98,6 +57,21 @@ MAKE_HRM(hml_num_0, &kp LGUI,  &kp N0,   KEYS_R THUMBS)
 
 / {
     behaviors {
+
+        HomeRowModLeft: HomeRowModLeft {
+            compatible = "zmk,behavior-hold-tap"; label = "HOMEROWMODLEFT";
+            bindings = <&kp>, <&kp>;
+            #binding-cells = <2>; flavor = "balanced";
+            tapping-term-ms = <280>; quick-tap-ms = <175>; require-prior-idle-ms = <150>;
+            hold-trigger-on-release; hold-trigger-key-positions = <KEYS_R THUMBS>;
+        };
+        HomeRowModRight: HomeRowModRight {
+            compatible = "zmk,behavior-hold-tap"; label = "HOMEROWMODRIGHT";
+            bindings = <&kp>, <&kp>;
+            #binding-cells = <2>; flavor = "balanced";
+            tapping-term-ms = <280>; quick-tap-ms = <175>; require-prior-idle-ms = <150>;
+            hold-trigger-on-release; hold-trigger-key-positions = <KEYS_L THUMBS>;
+        };
 
         magic_shift_hold_tap: magic_shift_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -191,13 +165,12 @@ MAKE_HRM(hml_num_0, &kp LGUI,  &kp N0,   KEYS_R THUMBS)
 
     keymap {
         compatible = "zmk,keymap";
-
         layer_0 {
             display-name = "BASE";
             bindings = <
                 &kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5          &kp UP      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp EQUAL
                 &kp TAB         &kp Q           &kp W           &kp E           &kp R           &kp T           &kp DOWN    &kp Y           &kp U           &kp I           &kp O           &kp P           &kp APOS
-                &kp ESC         &hml_a          &hml_s          &hml_d          &hml_f          &kp G           &kp LEFT    &kp H           &hmr_j          &hmr_k          &hmr_l          &hmr_semi       &kp MINUS
+                &kp ESC         &HomeRowModLeft LGUI A  &HomeRowModLeft LALT S &HomeRowModLeft LCTRL D &HomeRowModLeft LSHFT F          &kp G           &kp LEFT    &kp H           &HomeRowModRight RSHFT J &HomeRowModRight LCTRL K &HomeRowModRight LALT L &HomeRowModRight LGUI SEMI       &kp MINUS
                 &kp LBKT        &kp Z           &kp X           &kp C           &kp V           &kp B           &kp RIGHT   &kp N           &kp M           COMMA_MORPH     DOT_MORPH       QMARK_EXCL_MORPH &kp RBKT
                 /* Thumbs (52-63) */
                 &kp C_MUTE &kp HOME &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER &lt FN_LAYER RET
@@ -225,7 +198,7 @@ MAKE_HRM(hml_num_0, &kp LGUI,  &kp N0,   KEYS_R THUMBS)
             bindings = <
                 &trans &trans    &trans     &trans     &trans     &trans &trans    &trans &trans &trans &trans   &trans     &trans
                 &trans &kp F12    &kp F7     &kp F8     &kp F9     &trans &trans    &trans &kp C_PREV     &kp C_VOL_UP       &kp C_NEXT       &trans     &trans
-                &trans &hml_fn_f11  &hml_fn_f4 &hml_fn_f5 &hml_fn_f6   &trans &trans    &trans &hmr_fn_dsk_prev     &hmr_fn_vol_down      &hmr_fn_dsk_next       &trans     &trans
+                &trans &HomeRowModLeft LGUI F11  &HomeRowModLeft LALT F4 &HomeRowModLeft LCTRL F5 &HomeRowModLeft LSHFT F6   &trans &trans    &trans &HomeRowModRight RSHIFT LG(LC(LEFT))     &HomeRowModRight LCTRL C_VOL_DN      &HomeRowModRight LALT LG(LC(RIGHT))       &trans     &trans
                 &trans &kp F10     &kp F1     &kp F2     &kp F3     &trans &trans    PIN_APP PIN_WIN     DSK_MGR       &trans       &trans     &trans
                 /* Thumbs (52-63) */
                 &trans &trans &trans &trans &trans     &trans
@@ -239,7 +212,7 @@ MAKE_HRM(hml_num_0, &kp LGUI,  &kp N0,   KEYS_R THUMBS)
             bindings = <
                 &trans &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
                 &trans &trans &kp N7 &kp N8 &kp N9 &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &hml_num_0  &hml_num_4 &hml_num_5 &hml_num_6 &trans &trans    &trans &trans &trans &trans &trans &trans
+                &trans &HomeRowModLeft LGUI N0  &HomeRowModLeft LALT N4 &HomeRowModLeft LCTRL N5 &HomeRowModLeft LSHFT N6 &trans &trans    &trans &trans &trans &trans &trans &trans
                 &trans &trans &kp N1 &kp N2 &kp N3 &trans &trans    &trans &trans &trans &trans &trans &trans
                 /* Thumbs (52-63) */
                 &trans &trans &trans &trans &trans &trans
