@@ -127,6 +127,9 @@ parse_config:
     "&HomeRowModRight LCTRL K": {t: K, h: $$mdi:apple-keyboard-control$$}
     "&HomeRowModRight LALT L": {t: L, h: $$mdi:apple-keyboard-option$$}
     "&HomeRowModRight LGUI SEMI": {t: ";", h: $$mdi:apple-keyboard-command$$}
+    "&HomeRowModRight RSHIFT LG(LC(LEFT))": $$mdi:arrow-left-bold-box-outline$$
+    "&HomeRowModRight LALT LG(LC(RIGHT))": $$mdi:arrow-right-bold-box-outline$$
+    
     
     # Your thumb cluster hold-taps
     "&magic_shift_hold_tap LSHFT 0": {t: Magic, h: Shift}
