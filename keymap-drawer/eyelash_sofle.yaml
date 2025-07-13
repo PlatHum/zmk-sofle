@@ -165,9 +165,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: Gui+Ctl+←, h: RSHIFT}
+  - $$mdi:arrow-left-bold-box-outline$$
   - {t: '$$mdi:volume-medium$$', h: Ctrl}
-  - {t: Gui+Ctl+→, h: Alt}
+  - $$mdi:arrow-right-bold-box-outline$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -391,7 +391,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
-- p: [16, 22]
+- p: [44, 46]
   k: {t: MOUSE, h: toggle}
 - p: [41, 42]
   k: {t: Copy, h: Cut}
