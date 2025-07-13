@@ -57,12 +57,12 @@ layers:
   - HOME
   - BoOoO
   - '&leader_main'
-  - '&lt_space_nav_layer 1'
+  - {t: '&lt_space_nav_tap_wrapper', h: NAV}
   - {t: '$$mdi:keyboard-return$$', h: FN}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
-  - '&magic_shift_hold_tap LSHFT'
-  - '&smart_num_hold_tap 3'
+  - {t: '&magic_shift_tap_wrapper', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: '&smart_num_tap_wrapper', h: NUM}
   - CONTEXT MENU
   - {t: \, s: '|'}
   NAV:
@@ -122,7 +122,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -257,7 +257,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   MOUSE:
