@@ -1,11 +1,10 @@
 manifest:
+  defaults:
+    remote: urob
+    revision: v0.2
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-      # Additional modules containing boards/shields/custom code can be listed here as well.
-      # See:
-      # - https://zmk.dev/docs/features/modules
-      # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
     - name: gpeye
       url-base: https://github.com/GPeye
     - name: urob
@@ -15,18 +14,20 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: hammerbeam-slideshow
-      remote: gpeye             
-      revision: main
+    - name: zephyr
+      remote: urob
+      revision: v3.5.0+zmk-fixes
+      import:
+        name-allowlist:
+          - cmsis
+          - hal_nordic
+          - lvgl
+          - tinycrypt
     - name: zmk-leader-key
-      remote: urob
-      revision: main
-      path: modules/behaviors/zmk-leader-key     
     - name: zmk-adaptive-key
-      remote: urob
-      revision: v0.2
     - name: zmk-helpers
-      remote: urob
-      revision: main               
+    - name: hammerbeam-slideshow
+      remote: gpeye
+      revision: main
   self:
     path: boards

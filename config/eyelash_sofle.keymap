@@ -60,7 +60,6 @@ ZMK_BEHAVIOR(magic_shift_tap_action, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 ZMK_BEHAVIOR(adaptive_shift_repeat, adaptive_key,
-    init_priority = <90>;
     bindings = <&sk LSHFT>;
     repeat { trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>; bindings = <&key_repeat>; max-prior-idle-ms = <1200>; strict-modifiers; };
 )
@@ -91,7 +90,6 @@ ZMK_HOLD_TAP(lt_space_nav_layer,
     tapping-term-ms = <THUMB_TAPPING_TERM>;
     quick-tap-ms = <QUICK_TAP_MS>;
 )
-
 / {
     behaviors {
         HomeRowModLeft: HomeRowModLeft {
@@ -120,7 +118,6 @@ ZMK_HOLD_TAP(lt_space_nav_layer,
         };
         leader_main: leader_main {
             compatible = "zmk,behavior-leader-key"; label = "LEADER";
-            init_priority = <90>;
             #binding-cells = <0>;
             sequence_sys_reset { bindings = <&sys_reset>; sequence = <R E S E T>; };
             sequence_example_paste { bindings = <&kp LS(INS)>; sequence = <P A S T E>; };
