@@ -29,6 +29,9 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 #include "zmk-helpers/helper.h"
+#include "zmk-helpers/unicode-chars/portuguese.dtsi"
+#include "zmk-helpers/unicode-chars/greek.dtsi"
+#include "zmk-helpers/unicode-chars/currency.dtsi"
 
 // --- Pointing Device Settings ---
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
@@ -119,8 +122,53 @@ ZMK_HOLD_TAP(lt_space_nav_layer,
         leader_main: leader_main {
             compatible = "zmk,behavior-leader-key"; label = "LEADER";
             #binding-cells = <0>;
+            ignore-keys = <LSHFT RSHFT>;
             sequence_sys_reset { bindings = <&sys_reset>; sequence = <R E S E T>; };
-            sequence_example_paste { bindings = <&kp LS(INS)>; sequence = <P A S T E>; };
+            sequence_paste { bindings = <&kp LS(INS)>; sequence = <P>; };
+            // Portuguese sequences
+            sequence_cedilla { bindings = <&pt_c_cedilla>; sequence = <C COMMA>; };
+            sequence_a_acute { bindings = <&pt_a_acute>; sequence = <A APOS>; };
+            sequence_e_acute { bindings = <&pt_e_acute>; sequence = <E APOS>; };
+            sequence_i_acute { bindings = <&pt_i_acute>; sequence = <I APOS>; };
+            sequence_o_acute { bindings = <&pt_o_acute>; sequence = <O APOS>; };
+            sequence_u_acute { bindings = <&pt_u_acute>; sequence = <U APOS>; };
+            sequence_a_tilde { bindings = <&pt_a_tilde>; sequence = <A TILDE>; };
+            sequence_o_tilde { bindings = <&pt_o_tilde>; sequence = <O TILDE>; };
+            sequence_a_circ { bindings = <&pt_a_circ>; sequence = <A CARET>; };
+            sequence_e_circ { bindings = <&pt_e_circ>; sequence = <E CARET>; };
+            sequence_o_circ { bindings = <&pt_o_circ>; sequence = <O CARET>; };
+            sequence_a_grave { bindings = <&pt_a_grave>; sequence = <A GRAVE>; };
+            // Greek sequences
+            el_alpha {bindings = <&el_alpha>;    sequence = <G A>; };  // α
+            el_beta {bindings = <&el_beta>;    sequence = <G B>; };  // β
+            el_gamma {bindings = <&el_gamma>;    sequence = <G G>; };  // γ
+            el_delta {bindings = <&el_delta>;    sequence = <G D>; };  // δ
+            el_epsilon {bindings = <&el_epsilon>;    sequence = <G E>; };  // ε
+            el_zeta {bindings = <&el_zeta>;    sequence = <G Z>; };  // ζ
+            el_eta {bindings = <&el_eta>;    sequence = <G H>; };  // η
+            el_theta {bindings = <&el_theta>;    sequence = <G V>; };  // θ
+            el_iota {bindings = <&el_iota>;    sequence = <G I>; };  // ι
+            el_kappa {bindings = <&el_kappa>;    sequence = <G K>; };  // κ
+            el_lambda {bindings = <&el_lambda>;    sequence = <G L>; };  // λ
+            el_mu {bindings = <&el_mu>;    sequence = <G M>; };  // μ
+            el_nu {bindings = <&el_nu>;    sequence = <G N>; };  // ν
+            el_xi {bindings = <&el_xi>;    sequence = <G X>; };  // ξ
+            el_omikron {bindings = <&el_omikron>;    sequence = <G O>; };  // ο
+            el_pi {bindings = <&el_pi>;    sequence = <G P>; };  // π
+            el_rho {bindings = <&el_rho>;    sequence = <G R>; };  // ρ
+            el_sigma {bindings = <&el_sigma>;    sequence = <G S>; };  // σ
+            el_tau {bindings = <&el_tau>;    sequence = <G T>; };  // τ
+            el_upsilon {bindings = <&el_upsilon>;    sequence = <G U>; };  // υ
+            el_phi {bindings = <&el_phi>;    sequence = <G F>; };  // ϕ
+            el_chi {bindings = <&el_chi>;    sequence = <G C>; };  // χ
+            el_psi {bindings = <&el_psi>;    sequence = <G Y>; };  // ψ
+            el_omega {bindings = <&el_omega>;    sequence = <G W>; };  // ω
+            // Currency symbols
+            curr_dollar { bindings = <&curr_dollar>; sequence = <M D>; };
+            curr_pound { bindings = <&curr_pound>; sequence = <M P>; };
+            curr_cent { bindings = <&curr_cent>; sequence = <M C>; };
+            curr_euro { bindings = <&curr_euro>; sequence = <M E>;};
+            curr_bitcoin { bindings = <&curr_bitcoin>; sequence = <M B>; };
         };
         comma_morph_level1: comma_morph_level1 { compatible = "zmk,behavior-mod-morph"; label = "COMMA_L1"; #binding-cells = <0>; bindings = <&kp COMMA>, <&comma_morph_level2>; mods = <(MOD_LSFT|MOD_RSFT)>; };
         comma_morph_level2: comma_morph_level2 { compatible = "zmk,behavior-mod-morph"; label = "COMMA_L2"; #binding-cells = <0>; bindings = <&kp SEMICOLON>, <&kp LT>; mods = <(MOD_LCTL|MOD_RCTL)>; };
@@ -132,7 +180,7 @@ ZMK_HOLD_TAP(lt_space_nav_layer,
 
     combos {
         compatible = "zmk,combos";
-        MouseLayerToggle { bindings = <&tog MOUSE_LAYER>; key-positions = <16 22>; timeout-ms = <50>; };
+        MouseLayerToggle { bindings = <&tog MOUSE_LAYER>; key-positions = <44 46>; timeout-ms = <50>; };
         CopyCutCombo { bindings = <COPY_CUT_DANCE>; key-positions = <41 42>; timeout-ms = <50>; };
     };
 
