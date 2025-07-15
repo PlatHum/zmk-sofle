@@ -127,47 +127,47 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
             sequence_sys_reset { bindings = <&sys_reset>; sequence = <R E S E T>; };
             sequence_paste { bindings = <&kp LS(INS)>; sequence = <P>; };
             // Portuguese sequences
-            sequence_cedilla { bindings = <&pt_c_cedilla>; sequence = <C COMMA>; };
-            sequence_a_acute { bindings = <&pt_aa>; sequence = <A APOS>; };
-            sequence_e_acute { bindings = <&pt_e_acute>; sequence = <E APOS>; };
-            sequence_o_acute { bindings = <&pt_oa>; sequence = <O APOS>; };
-            sequence_a_tilde { bindings = <&pt_a_tilde>; sequence = <A TILDE>; };
-            sequence_o_tilde { bindings = <&pt_o_tilde>; sequence = <O TILDE>; };
-            sequence_a_circ { bindings = <&pt_a_circumflex>; sequence = <A CARET>; };
-            sequence_e_circ { bindings = <&pt_e_circumflex>; sequence = <E CARET>; };
-            sequence_o_circ { bindings = <&pt_o_circumflex>; sequence = <O CARET>; };
-            sequence_a_grave { bindings = <&pt_a_grave>; sequence = <A GRAVE>; };
-            // Greek sequences
-            el_alpha {bindings = <&el_alpha>;    sequence = <G A>; };  // α
-            el_beta {bindings = <&el_beta>;    sequence = <G B>; };  // β
-            el_gamma {bindings = <&el_gamma>;    sequence = <G G>; };  // γ
-            el_delta {bindings = <&el_delta>;    sequence = <G D>; };  // δ
-            el_epsilon {bindings = <&el_epsilon>;    sequence = <G E>; };  // ε
-            el_zeta {bindings = <&el_zeta>;    sequence = <G Z>; };  // ζ
-            el_eta {bindings = <&el_eta>;    sequence = <G H>; };  // η
-            el_theta {bindings = <&el_theta>;    sequence = <G V>; };  // θ
-            el_iota {bindings = <&el_iota>;    sequence = <G I>; };  // ι
-            el_kappa {bindings = <&el_kappa>;    sequence = <G K>; };  // κ
-            el_lambda {bindings = <&el_lambda>;    sequence = <G L>; };  // λ
-            el_mu {bindings = <&el_mu>;    sequence = <G M>; };  // μ
-            el_nu {bindings = <&el_nu>;    sequence = <G N>; };  // ν
-            el_xi {bindings = <&el_xi>;    sequence = <G X>; };  // ξ
-            el_omikron {bindings = <&el_omikron>;    sequence = <G O>; };  // ο
-            el_pi {bindings = <&el_pi>;    sequence = <G P>; };  // π
-            el_rho {bindings = <&el_rho>;    sequence = <G R>; };  // ρ
-            el_sigma {bindings = <&el_sigma>;    sequence = <G S>; };  // σ
-            el_tau {bindings = <&el_tau>;    sequence = <G T>; };  // τ
-            el_upsilon {bindings = <&el_upsilon>;    sequence = <G U>; };  // υ
-            el_phi {bindings = <&el_phi>;    sequence = <G F>; };  // ϕ
-            el_chi {bindings = <&el_chi>;    sequence = <G C>; };  // χ
-            el_psi {bindings = <&el_psi>;    sequence = <G Y>; };  // ψ
-            el_omega {bindings = <&el_omega>;    sequence = <G W>; };  // ω
-            // Currency symbols
-            curr_dollar { bindings = <&curr_dollar>; sequence = <M D>; };
-            curr_pound { bindings = <&curr_pound>; sequence = <M P>; };
-            curr_cent { bindings = <&curr_cent>; sequence = <M C>; };
-            curr_euro { bindings = <&curr_euro>; sequence = <M E>;};
-            curr_bitcoin { bindings = <&curr_bitcoin>; sequence = <M B>; };
+            // sequence_cedilla { bindings = <&pt_c_cedilla>; sequence = <C COMMA>; };
+            // sequence_a_acute { bindings = <&pt_aa>; sequence = <A APOS>; };
+            // sequence_e_acute { bindings = <&pt_e_acute>; sequence = <E APOS>; };
+            // sequence_o_acute { bindings = <&pt_oa>; sequence = <O APOS>; };
+            // sequence_a_tilde { bindings = <&pt_a_tilde>; sequence = <A TILDE>; };
+            // sequence_o_tilde { bindings = <&pt_o_tilde>; sequence = <O TILDE>; };
+            // sequence_a_circ { bindings = <&pt_a_circumflex>; sequence = <A CARET>; };
+            // sequence_e_circ { bindings = <&pt_e_circumflex>; sequence = <E CARET>; };
+            // sequence_o_circ { bindings = <&pt_o_circumflex>; sequence = <O CARET>; };
+            // sequence_a_grave { bindings = <&pt_a_grave>; sequence = <A GRAVE>; };
+            // // Greek sequences
+            // el_alpha {bindings = <&el_alpha>;    sequence = <G A>; };  // α
+            // el_beta {bindings = <&el_beta>;    sequence = <G B>; };  // β
+            // el_gamma {bindings = <&el_gamma>;    sequence = <G G>; };  // γ
+            // el_delta {bindings = <&el_delta>;    sequence = <G D>; };  // δ
+            // el_epsilon {bindings = <&el_epsilon>;    sequence = <G E>; };  // ε
+            // el_zeta {bindings = <&el_zeta>;    sequence = <G Z>; };  // ζ
+            // el_eta {bindings = <&el_eta>;    sequence = <G H>; };  // η
+            // el_theta {bindings = <&el_theta>;    sequence = <G V>; };  // θ
+            // el_iota {bindings = <&el_iota>;    sequence = <G I>; };  // ι
+            // el_kappa {bindings = <&el_kappa>;    sequence = <G K>; };  // κ
+            // el_lambda {bindings = <&el_lambda>;    sequence = <G L>; };  // λ
+            // el_mu {bindings = <&el_mu>;    sequence = <G M>; };  // μ
+            // el_nu {bindings = <&el_nu>;    sequence = <G N>; };  // ν
+            // el_xi {bindings = <&el_xi>;    sequence = <G X>; };  // ξ
+            // el_omikron {bindings = <&el_omikron>;    sequence = <G O>; };  // ο
+            // el_pi {bindings = <&el_pi>;    sequence = <G P>; };  // π
+            // el_rho {bindings = <&el_rho>;    sequence = <G R>; };  // ρ
+            // el_sigma {bindings = <&el_sigma>;    sequence = <G S>; };  // σ
+            // el_tau {bindings = <&el_tau>;    sequence = <G T>; };  // τ
+            // el_upsilon {bindings = <&el_upsilon>;    sequence = <G U>; };  // υ
+            // el_phi {bindings = <&el_phi>;    sequence = <G F>; };  // ϕ
+            // el_chi {bindings = <&el_chi>;    sequence = <G C>; };  // χ
+            // el_psi {bindings = <&el_psi>;    sequence = <G Y>; };  // ψ
+            // el_omega {bindings = <&el_omega>;    sequence = <G W>; };  // ω
+            // // Currency symbols
+            // curr_dollar { bindings = <&curr_dollar>; sequence = <M D>; };
+            // curr_pound { bindings = <&curr_pound>; sequence = <M P>; };
+            // curr_cent { bindings = <&curr_cent>; sequence = <M C>; };
+            // curr_euro { bindings = <&curr_euro>; sequence = <M E>;};
+            // curr_bitcoin { bindings = <&curr_bitcoin>; sequence = <M B>; };
         };
         comma_morph_level1: comma_morph_level1 { compatible = "zmk,behavior-mod-morph"; label = "COMMA_L1"; #binding-cells = <0>; bindings = <&kp COMMA>, <&comma_morph_level2>; mods = <(MOD_LSFT|MOD_RSFT)>; };
         comma_morph_level2: comma_morph_level2 { compatible = "zmk,behavior-mod-morph"; label = "COMMA_L2"; #binding-cells = <0>; bindings = <&kp SEMICOLON>, <&kp LT>; mods = <(MOD_LCTL|MOD_RCTL)>; };
@@ -191,9 +191,9 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
                 &kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5          &kp UP      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp EQUAL
                 &kp TAB         &kp Q           &kp W           &kp E           &kp R           &kp T           &kp DOWN    &kp Y           &kp U           &kp I           &kp O           &kp P           &kp APOS
                 &kp ESC         &HomeRowModLeft LGUI A  &HomeRowModLeft LALT S &HomeRowModLeft LCTRL D &HomeRowModLeft LSHFT F          &kp G           &kp LEFT    &kp H           &HomeRowModRight RSHFT J &HomeRowModRight LCTRL K &HomeRowModRight LALT L &HomeRowModRight LGUI SEMI       &kp MINUS
-                &kp LBKT        &kp Z           &kp X           &kp C           &kp V           &kp B           &kp RIGHT   &kp N           &kp M           COMMA_MORPH     DOT_MORPH       QMARK_EXCL_MORPH &kp RBKT
+                &kp LBKT        &kp Z           &kp X           &kp C           &kp V           &kp B           &kp RIGHT   &kp N           &kp M           &kp COMMA     &kp DOT       &kp SLASH  &kp RBKT
                 /* Thumbs (52-63) */
-                &kp C_MUTE &kp HOME &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER 0 &lt FN_LAYER RET
+                &kp C_MUTE &kp C_AC_SEARCH &mo BOOOO_LAYER  &leader_main &lt_space_nav_layer NAV_LAYER 0 &lt FN_LAYER RET
                 &kp ENTER  &kp BSPC &magic_shift_hold_tap LSHFT 0 &smart_num_hold_tap NUM_LAYER 0 &kp K_CONTEXT_MENU &kp BACKSLASH
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -202,15 +202,15 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
         layer_1 {
             display-name = "NAV";
             bindings = <
-                &trans &trans     &trans   &trans     &trans    &trans &trans    &trans     &trans     &trans &trans &trans &trans
-                &trans &kp LA(F4) &trans &trans &trans &trans &trans    &kp PG_UP  NAV_BSPC NAV_UP NAV_DEL &trans &trans
-                &trans &sk LGUI   &sk LALT &sk LCTRL  &sk LSHFT &trans &trans    &kp PG_DN  NAV_LEFT   NAV_DOWN NAV_RIGHT &kp RET  &trans
-                &trans &trans     &trans   &trans     &kp LS(TAB)    &trans &trans    &kp INS    &kp TAB    &trans &trans &trans &trans
+                &trans &trans     &trans   &trans     &trans    &trans &mmv MOVE_UP    &trans     &trans     &trans &trans &trans &trans
+                &trans &kp LA(F4) &trans &trans &trans &trans &mmv MOVE_DOWN    &kp PG_UP  NAV_BSPC NAV_UP NAV_DEL &trans &trans
+                &trans &sk LGUI   &sk LALT &sk LCTRL  &sk LSHFT &trans &mmv MOVE_LEFT   &kp PG_DN  NAV_LEFT   NAV_DOWN NAV_RIGHT &kp RET  &trans
+                &trans &trans     &trans   &trans     &kp LS(TAB)    &trans &mmv MOVE_RIGHT    &kp INS    &kp TAB    &trans &trans &trans &trans
                 /* Thumbs (52-63) */
                 &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &kp K_CANCEL &trans &trans
+                &mkp LCLK &trans &trans &kp K_CANCEL &trans &trans
             >;
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_AC_ZOOM_IN C_AC_ZOOM_OUT>;
         };
 
         layer_2 {
@@ -230,7 +230,7 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
         layer_3 {
             display-name = "NUM";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+                &trans &kp EXCL  &kp AT &kp HASH &kp DOLLAR &kp PERCENT &trans    &kp CARET &kp AMPERSAND &kp ASTERISK &kp LPAR &kp RPAR &trans
                 &trans &trans &kp N7 &kp N8 &kp N9 &trans &trans    &trans &trans &trans &trans &trans &trans
                 &trans &HomeRowModLeft LGUI N0  &HomeRowModLeft LALT N4 &HomeRowModLeft LCTRL N5 &HomeRowModLeft LSHFT N6 &trans &trans    &trans &trans &trans &trans &trans &trans
                 &trans &trans &kp N1 &kp N2 &kp N3 &trans &trans    &trans &trans &trans &trans &trans &trans
@@ -244,13 +244,13 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
         layer_4 {
             display-name = "MOUSE";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans    &trans   &trans    &trans    &trans    &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans    &trans   &kp PG_UP &mmv MOVE_UP &kp PG_DN &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans    &msc SCRL_LEFT &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT  &msc SCRL_RIGHT &trans
-                &trans &trans &trans &trans &trans &trans &trans    &trans  &mkp LCLK &mkp MCLK &mkp RCLK &trans &trans
+                &trans &trans &trans &trans &trans &trans &kp UP    &trans   &trans    &trans    &trans    &trans &trans
+                &trans &trans &trans &trans &trans &trans &kp DOWN    &trans   &kp PG_UP &mmv MOVE_UP &kp PG_DN &trans &trans
+                &trans &trans &trans &trans &trans &trans &kp LEFT    &msc SCRL_LEFT &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT  &msc SCRL_RIGHT &trans
+                &trans &trans &trans &trans &trans &trans &kp RIGHT    &trans  &mkp LCLK &mkp MCLK &mkp RCLK &trans &trans
                 /* Thumbs (52-63) */
                 &trans &trans &trans &trans &msc SCRL_UP &msc SCRL_DOWN
-                &trans &trans &trans &trans &trans &trans
+                &kp ENTER &trans &trans &trans &trans &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };

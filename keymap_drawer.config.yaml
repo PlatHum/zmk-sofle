@@ -179,6 +179,7 @@ parse_config:
     DEL: Del
     ESC: Esc
     RET: Enter
+    ENTER: Enter
     SPACE: Spc
     TAB: Tab
     PG_UP: PgUp
@@ -192,35 +193,47 @@ parse_config:
     RIGHT: →
     
     AMPERSAND: "&"
-    APOS: "'"
+    APOS: {t: "'", s: '"'}
     ASTERISK: "*"
     AT: "@"
-    BACKSLASH: \
+    BACKSLASH: {t: '\', s: "|"}
     CARET: ^
     COLON: ":"
-    COMMA: ","
+    COMMA: {t: ",", s: "<"}
     DLLR: $
-    DOT: .
+    DOT: {t: ".", s: ">"}
     DOUBLE_QUOTES: '"'
-    EQUAL: "="
+    DOLLAR: "$"
+    EQUAL: {t: "=", s: "+"}
     EXCL: "!"
     FSLH: /
-    GRAVE: "`"
+    GRAVE: {t: "`", s: "~"}
     GT: ">"
     HASH: "#"
-    LBKT: "["
+    LBKT: {t: "[", s: "{"}
     LBRC: "{"
     LPAR: (
     LT: <
-    MINUS: "-"
+    MINUS: {t: "-", s: "_"}
     PIPE: "|"
     PLUS: +
+    PERCENT: "%"
     QMARK: "?"
-    RBKT: "]"
+    RBKT: {t: "]", s: "}"}
     RBRC: "}"
     RPAR: )
     SEMI: ;
-    SLASH: /
+    SLASH: {t: "/", s: "?"}
     SQT: "'"
     TILDE: "~"
     UNDER: _
+    N1: {t: "1", s: "!"}
+    N2: {t: "2", s: "@"}
+    N3: {t: "3", s: "#"}
+    N4: {t: "4", s: "$"}
+    N5: {t: "5", s: "%"}
+    N6: {t: "6", s: "^"}
+    N7: {t: "7", s: "&"}
+    N8: {t: "8", s: "*"}
+    N9: {t: "9", s: "("}
+    N0: {t: "0", s: ")"}
