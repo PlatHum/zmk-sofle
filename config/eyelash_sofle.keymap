@@ -164,11 +164,11 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
             // el_psi {bindings = <&el_psi>;    sequence = <G Y>; };  // ψ
             // el_omega {bindings = <&el_omega>;    sequence = <G W>; };  // ω
             // // Currency symbols
-            // curr_dollar { bindings = <&curr_dollar>; sequence = <M D>; };
-            // curr_pound { bindings = <&curr_pound>; sequence = <M P>; };
-            // curr_cent { bindings = <&curr_cent>; sequence = <M C>; };
-            // curr_euro { bindings = <&curr_euro>; sequence = <M E>;};
-            // curr_bitcoin { bindings = <&curr_bitcoin>; sequence = <M B>; };
+            curr_dollar { bindings = <&curr_dollar>; sequence = <M D>; };
+            curr_pound { bindings = <&curr_pound>; sequence = <M P>; };
+            curr_cent { bindings = <&curr_cent>; sequence = <M C>; };
+            curr_euro { bindings = <&curr_euro>; sequence = <M E>;};
+            curr_bitcoin { bindings = <&curr_bitcoin>; sequence = <M B>; };
         };
         comma_morph_level1: comma_morph_level1 { compatible = "zmk,behavior-mod-morph"; label = "COMMA_L1"; #binding-cells = <0>; bindings = <&kp COMMA>, <&comma_morph_level2>; mods = <(MOD_LSFT|MOD_RSFT)>; };
         comma_morph_level2: comma_morph_level2 { compatible = "zmk,behavior-mod-morph"; label = "COMMA_L2"; #binding-cells = <0>; bindings = <&kp SEMICOLON>, <&kp LT>; mods = <(MOD_LCTL|MOD_RCTL)>; };
