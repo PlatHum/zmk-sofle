@@ -139,30 +139,30 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
             sequence_o_circ { bindings = <&pt_o_circumflex>; sequence = <O CARET>; };
             sequence_a_grave { bindings = <&pt_a_grave>; sequence = <A GRAVE>; };
             // // Greek sequences
-            // el_alpha {bindings = <&el_alpha>;    sequence = <G A>; };  // α
-            // el_beta {bindings = <&el_beta>;    sequence = <G B>; };  // β
-            // el_gamma {bindings = <&el_gamma>;    sequence = <G G>; };  // γ
-            // el_delta {bindings = <&el_delta>;    sequence = <G D>; };  // δ
-            // el_epsilon {bindings = <&el_epsilon>;    sequence = <G E>; };  // ε
-            // el_zeta {bindings = <&el_zeta>;    sequence = <G Z>; };  // ζ
-            // el_eta {bindings = <&el_eta>;    sequence = <G H>; };  // η
-            // el_theta {bindings = <&el_theta>;    sequence = <G V>; };  // θ
-            // el_iota {bindings = <&el_iota>;    sequence = <G I>; };  // ι
-            // el_kappa {bindings = <&el_kappa>;    sequence = <G K>; };  // κ
-            // el_lambda {bindings = <&el_lambda>;    sequence = <G L>; };  // λ
-            // el_mu {bindings = <&el_mu>;    sequence = <G M>; };  // μ
-            // el_nu {bindings = <&el_nu>;    sequence = <G N>; };  // ν
-            // el_xi {bindings = <&el_xi>;    sequence = <G X>; };  // ξ
-            // el_omikron {bindings = <&el_omikron>;    sequence = <G O>; };  // ο
-            // el_pi {bindings = <&el_pi>;    sequence = <G P>; };  // π
-            // el_rho {bindings = <&el_rho>;    sequence = <G R>; };  // ρ
-            // el_sigma {bindings = <&el_sigma>;    sequence = <G S>; };  // σ
-            // el_tau {bindings = <&el_tau>;    sequence = <G T>; };  // τ
-            // el_upsilon {bindings = <&el_upsilon>;    sequence = <G U>; };  // υ
-            // el_phi {bindings = <&el_phi>;    sequence = <G F>; };  // ϕ
-            // el_chi {bindings = <&el_chi>;    sequence = <G C>; };  // χ
-            // el_psi {bindings = <&el_psi>;    sequence = <G Y>; };  // ψ
-            // el_omega {bindings = <&el_omega>;    sequence = <G W>; };  // ω
+            el_alpha {bindings = <&el_alpha>;    sequence = <G A>; };  // α
+            el_beta {bindings = <&el_beta>;    sequence = <G B>; };  // β
+            el_gamma {bindings = <&el_gamma>;    sequence = <G G>; };  // γ
+            el_delta {bindings = <&el_delta>;    sequence = <G D>; };  // δ
+            el_epsilon {bindings = <&el_epsilon>;    sequence = <G E>; };  // ε
+            el_zeta {bindings = <&el_zeta>;    sequence = <G Z>; };  // ζ
+            el_eta {bindings = <&el_eta>;    sequence = <G H>; };  // η
+            el_theta {bindings = <&el_theta>;    sequence = <G V>; };  // θ
+            el_iota {bindings = <&el_iota>;    sequence = <G I>; };  // ι
+            el_kappa {bindings = <&el_kappa>;    sequence = <G K>; };  // κ
+            el_lambda {bindings = <&el_lambda>;    sequence = <G L>; };  // λ
+            el_mu {bindings = <&el_mu>;    sequence = <G M>; };  // μ
+            el_nu {bindings = <&el_nu>;    sequence = <G N>; };  // ν
+            el_xi {bindings = <&el_xi>;    sequence = <G X>; };  // ξ
+            el_omikron {bindings = <&el_omikron>;    sequence = <G O>; };  // ο
+            el_pi {bindings = <&el_pi>;    sequence = <G P>; };  // π
+            el_rho {bindings = <&el_rho>;    sequence = <G R>; };  // ρ
+            el_sigma {bindings = <&el_sigma>;    sequence = <G S>; };  // σ
+            el_tau {bindings = <&el_tau>;    sequence = <G T>; };  // τ
+            el_upsilon {bindings = <&el_upsilon>;    sequence = <G U>; };  // υ
+            el_phi {bindings = <&el_phi>;    sequence = <G F>; };  // ϕ
+            el_chi {bindings = <&el_chi>;    sequence = <G C>; };  // χ
+            el_psi {bindings = <&el_psi>;    sequence = <G Y>; };  // ψ
+            el_omega {bindings = <&el_omega>;    sequence = <G W>; };  // ω
             // // Currency symbols
             curr_dollar { bindings = <&curr_dollar>; sequence = <M D>; };
             curr_pound { bindings = <&curr_pound>; sequence = <M P>; };
