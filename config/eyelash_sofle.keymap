@@ -93,7 +93,7 @@ ZMK_HOLD_TAP(lt_space_nav_layer,
     tapping-term-ms = <THUMB_TAPPING_TERM>;
     quick-tap-ms = <QUICK_TAP_MS>;
 )
-ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
+// ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
 / {
     behaviors {
         HomeRowModLeft: HomeRowModLeft {
@@ -127,16 +127,16 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
             sequence_sys_reset { bindings = <&sys_reset>; sequence = <R E S E T>; };
             sequence_paste { bindings = <&kp LS(INS)>; sequence = <P>; };
             // Portuguese sequences
-            // sequence_cedilla { bindings = <&pt_c_cedilla>; sequence = <C COMMA>; };
-            // sequence_a_acute { bindings = <&pt_aa>; sequence = <A APOS>; };
-            // sequence_e_acute { bindings = <&pt_e_acute>; sequence = <E APOS>; };
-            // sequence_o_acute { bindings = <&pt_oa>; sequence = <O APOS>; };
-            // sequence_a_tilde { bindings = <&pt_a_tilde>; sequence = <A TILDE>; };
+            sequence_cedilla { bindings = <&pt_c_cedilla>; sequence = <C COMMA>; };
+            sequence_a_acute { bindings = <&pt_aa>; sequence = <A APOS>; };
+            sequence_e_acute { bindings = <&pt_e_acute>; sequence = <E APOS>; };
+            sequence_o_acute { bindings = <&pt_oa>; sequence = <O APOS>; };
+            sequence_a_tilde { bindings = <&pt_a_tilde>; sequence = <A TILDE>; };
             // sequence_o_tilde { bindings = <&pt_o_tilde>; sequence = <O TILDE>; };
-            // sequence_a_circ { bindings = <&pt_a_circumflex>; sequence = <A CARET>; };
-            // sequence_e_circ { bindings = <&pt_e_circumflex>; sequence = <E CARET>; };
-            // sequence_o_circ { bindings = <&pt_o_circumflex>; sequence = <O CARET>; };
-            // sequence_a_grave { bindings = <&pt_a_grave>; sequence = <A GRAVE>; };
+            sequence_a_circ { bindings = <&pt_a_circumflex>; sequence = <A CARET>; };
+            sequence_e_circ { bindings = <&pt_e_circumflex>; sequence = <E CARET>; };
+            sequence_o_circ { bindings = <&pt_o_circumflex>; sequence = <O CARET>; };
+            sequence_a_grave { bindings = <&pt_a_grave>; sequence = <A GRAVE>; };
             // // Greek sequences
             // el_alpha {bindings = <&el_alpha>;    sequence = <G A>; };  // α
             // el_beta {bindings = <&el_beta>;    sequence = <G B>; };  // β
