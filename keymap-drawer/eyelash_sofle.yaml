@@ -87,8 +87,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - '&mmv MOVE_DOWN'
   - PgUp
+  - PgDn
   - {t: Bspc, h: Ctl+Bspc}
-  - {t: ↑, h: Ctl+Home}
   - {t: Del, h: Ctl+Del}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -99,9 +99,9 @@ layers:
   - {t: Shift, h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:transfer$$', type: trans}
   - '&mmv MOVE_LEFT'
-  - PgDn
   - {t: ←, h: Home}
   - {t: ↓, h: Ctl+End}
+  - {t: ↑, h: Ctl+Home}
   - {t: →, h: End}
   - Enter
   - {t: '$$mdi:transfer$$', type: trans}
