@@ -1,21 +1,23 @@
 manifest:
   defaults:
     remote: urob
-    revision: v0.2
+    revision: v0.3
+
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: gpeye
-      url-base: https://github.com/GPeye
     - name: urob
       url-base: https://github.com/urob
+    - name: gpeye
+      url-base: https://github.com/GPeye
+
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
       import: app/west.yml
+
     - name: zephyr
-      remote: urob
+      remote: zmkfirmware
       revision: v3.5.0+zmk-fixes
       import:
         name-allowlist:
@@ -23,11 +25,14 @@ manifest:
           - hal_nordic
           - lvgl
           - tinycrypt
+          - nanopb
+
+    - name: zmk-helpers
     - name: zmk-leader-key
     - name: zmk-adaptive-key
-    - name: zmk-helpers
     - name: hammerbeam-slideshow
       remote: gpeye
       revision: main
+
   self:
     path: boards
