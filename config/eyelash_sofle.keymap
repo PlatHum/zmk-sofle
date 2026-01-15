@@ -18,6 +18,7 @@
 #define NUM_LAYER 3
 #define MOUSE_LAYER 4
 #define BOOOO_LAYER 5
+#define GAME_LAYER 6
 
 // --- Includes ---
 #include <input/processors.dtsi>
@@ -182,6 +183,7 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
         compatible = "zmk,combos";
         MouseLayerToggle { bindings = <&tog MOUSE_LAYER>; key-positions = <44 46>; timeout-ms = <50>; };
         CopyCutCombo { bindings = <COPY_CUT_DANCE>; key-positions = <41 42>; timeout-ms = <50>; };
+        GameLayerToggle { bindings = <&tog GAME_LAYER>; key-positions = <4 2>; timeout-ms = <50>; };
     };
 
     keymap {
@@ -266,6 +268,20 @@ ZMK_UNICODE_PAIR(pt_o_tilde, N0, N0, F, N5, N0, N0, D, N5)
                 /* Thumbs (52-63) */
                 &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        layer_6 {
+            display-name = "GAME";
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans          &trans          &mmv MOVE_UP    &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans          &mmv MOVE_DOWN  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &kp A           &kp S           &kp D           &kp F           &trans          &mmv MOVE_LEFT  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans          &mmv MOVE_RIGHT &trans          &trans          &trans          &trans          &trans          &trans
+                /* Thumbs (52-63) */
+                &trans &trans &kp LCTRL &kp LSHFT &trans &trans
+                &mkp LCLK &trans &mkp RCLK &kp LALT &kp LGUI &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
